@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK | ColorScript.</title>
+    <meta name="author" content="Jakub Szot">
+    <meta name="description" content="Preperation for the professional qualification examination INF.03">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <nav>
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="IMAGES/logo.png" alt="logo">
+                    </a>
+                    <h2>JavaScript</h2>
+                </div>
+                <div class="main-nav-links">
+                    <ul>
+                        <li>
+                            <a class="try-js" href="#">Try JavaScript</a>
+                        </li>
+                        <li>
+                            <a href="">News</a>
+                        </li>
+                        <li>
+                            <a href="">Resources</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="accordion-container">
+        <div class="accordion-item">
+            <h2>1. Pomocnik Css <span class="accordion-button">➕</span></h2>
+            <div class="accordion-content">
+                <h2>Podaj składową H koloru w kodzie HSL</h2>
+                <p>0 do 30 czerwienie, do 60 żółcie, do 150 zielenie, do 250 niebieskie, do 360 fiolet i purpura</p>
+                <img src="IMAGES/kolory.jpg" alt="Przestrzeń barw HSL"><br>
+                <input class="value" type="number" max="360" placeholder="0 - 360">
+                <button>Generuj paletę</button>
+                <table>
+                    <tr>
+                        <td colspan="4">Kolor główny</td>
+                    </tr>
+                    <tr>
+                        <td>kolor 2</td>
+                        <td>kolor 3</td>
+                        <td>kolor 4</td>
+                        <td>kolor 5</td>
+                    </tr>
+                </table>
+            </div>
+            <script>
+                function changeColor(){
+                    const value = document.querySelector('.value').value;
+                    console.log(value)
+                    const cols = document.querySelectorAll('td');
+                    let saturation = 100;
+                    cols.forEach((e) => {
+                        e.style.backgroundColor = `hsl(${value}, ${saturation}%, 50%)`
+                        saturation-=20;
+                    })
+                }
+        
+                document.querySelector('button').addEventListener('click', changeColor);
+            </script>
+        </div>
+        <div class="accordion-item">
+            <h2>2. Rejestracja 2024 <span class="accordion-button">➕</span></h2>
+            <div class="accordion-content">
+                <div class="accordion-content-2">
+                    <div class="form-block personal-info">
+                        <h2>Dane osobowe</h2>
+                        <input type="text" name="fname" id="fname" placeholder="Wpisz imię..." required>
+                        <input type="text" name="lname" id="lname" placeholder="Wpisz nazwisko..." required>
+                        <button type="button">Następna karta</button>
+                    </div>
+                    <div class="form-block contact-info hidden">
+                        <h2>Dane kontaktowe</h2>
+                        <input type="email" name="email" id="email" placeholder="Twój e-mail..." >
+                        <input type="tel" name="tel" id="tel" placeholder="Twój numer telefonu..." >
+                        <button type="button">Następna karta</button>
+                    </div>
+                    <div class="form-block login-block hidden">
+                        <h2>Hasło do logowania</h2>
+                        <input type="password" name="password" id="password" placeholder="Podaj hasło" >
+                        <input type="password" name="password2" id="password2" placeholder="Powtórz hasło">
+                        <button type="button">Zatwierdź</button>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const personalInfoButton = document.querySelector('.personal-info button');
+                const contactInfoButton = document.querySelector('.contact-info button');
+                const loginBlockButton = document.querySelector('.login-block button');
+
+                personalInfoButton.addEventListener('click', () => {
+                    personalInfoButton.parentElement.classList.add('hidden')
+                    contactInfoButton.parentElement.classList.remove('hidden')
+                })
+
+                contactInfoButton.addEventListener('click', () => {
+                    contactInfoButton.parentElement.classList.add('hidden')
+                    loginBlockButton.parentElement.classList.remove('hidden')
+                })
+
+                loginBlockButton.addEventListener('click', () => {
+                    if(document.querySelector('#password').value!== document.querySelector('#password2').value){
+                        alert('Podane hasła różnią się')
+                    }
+                    const fname = document.querySelector('#fname').value
+                    const lname = document.querySelector('#lname').value
+                    console.log(`Witaj ${fname} ${lname}`)
+                })
+
+
+            </script>
+        </div>
+        <div class="accordion-item">
+            <h2>3. Sekcja Trzecia <span class="accordion-button">➕</span></h2>
+            <div class="accordion-content accordion-content-3">
+                <aside>
+                    <img src="IMAGES/obraz.png" alt="promocje">
+                    <h2>Sprawdź promocje</h2>
+                    <table>
+                        <tr>
+                            <th>co?</th>
+                            <th>ile taniej?</th>
+                        </tr>
+                        <tr>
+                            <td>ubrania</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>buty</td>
+                            <td>25%</td>
+                        </tr>
+                    </table>
+                </aside>
+                <div class="accordion-content-3-header">
+                    <h1>Zarejestruj się w sklepie</h1>
+                </div>
+                <div class="accordion-content-3-main">
+                    <section>
+                        <button onclick="pokazBlok('blok1')">Klient</button>
+                        <button onclick="pokazBlok('blok2')">Adres</button>
+                        <button onclick="pokazBlok('blok3')">Kontakt</button>
+                    </section>
+                    <section id="blok1">
+                        <p>Imię</p>
+                        <input id="imie" type="text" placeholder="Wpisz dane...">
+                        <p>Nazwisko</p>
+                        <input id="nazwisko" type="text">
+                        <p>Data urodzenia</p>
+                        <input id="dataUrodzenia" type="date">
+                    </section>
+                    <section id="blok2">
+                        <p>Ulica</p>
+                        <input id="ulica" type="text">
+                        <p>Numer</p>
+                        <input id="numer" type="number">
+                        <p>Miasto</p>
+                        <input id="miasto" type="text">
+                    </section>
+                    <section id="blok3">
+                        <p>Numer komórkowy</p>
+                        <input id="numerTelefonu" type="tel">
+                        <br>
+                        <label>
+                            <input type="checkbox" id="rodo">
+                            Akceptuję RODO
+                        </label>
+                        <br>
+                        <button id="zatwierdz" onclick="zatwierdz()">Zatwierdź dane</button>
+                    </section>
+                </div>
+                <section id="pasek_postepu">
+                    <section id="pasek"></section>
+                </section>
+                <footer>
+                    <h4>Rejestrację do sklepu wykonał: Jakub Szot</h4>
+                </footer>
+            </div>
+            <script>
+                function pokazBlok(blok) {
+                    const bloki = ["blok1", "blok2", "blok3"]
+                    bloki.forEach(id => {
+                        document.getElementById(id).style.display = "none"
+                    })
+                    const wybranyBlok = document.getElementById(blok)
+                    wybranyBlok.style.display = "flex";
+                }
+
+                let width = 4
+                function zaaktualizujPasek() {
+                    const pasek = document.getElementById("pasek")
+                    width += 12
+                    if (width > 100) {
+                        width = 100
+                    }
+                    pasek.style.width = width + "%"
+                }
+
+                document.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('blur', zaaktualizujPasek)
+                })
+
+                function zatwierdz() {
+                    const imie = document.getElementById('imie').value
+                    const nazwisko = document.getElementById('nazwisko').value
+                    const dataUrodzenia = document.getElementById('dataUrodzenia').value
+                    const ulica = document.getElementById('ulica').value
+                    const numer = document.getElementById('numer').value
+                    const miasto = document.getElementById('miasto').value
+                    const numerTelefonu = document.getElementById('numerTelefonu').value
+                    const rodoAccepted = document.getElementById('rodo').checked
+
+                    console.log(imie + ", " + nazwisko + ", " + dataUrodzenia + ", " + ulica + ", " + numer + ", " + miasto + ", " + numerTelefonu + ", " + rodoAccepted);
+                }
+            </script>
+        </div>
+        <div class="accordion-item">
+            <h2>4. Biuro turystyczne 2024 <span class="accordion-button">➕</span></h2>
+            <div class="accordion-content">
+                <div class="accordion-content-4">
+                    <div class="accordion-content-4-header">
+                        <h1>Zwiedzamy Polskę</h1>
+                    </div>
+                    <div class="accordion-content-4-main">
+                        <section id="lewy">
+                            <button onclick="previousImage()">&lt;</button>
+                        </section>
+                        <section id="srodkowy">
+                            <img src="IMAGES/1.jpg" alt="Aktywne zdjęcie" id="aktywne_zdjecie">
+                        </section>
+                        <section id="prawy">
+                            <button onclick="nextImage()">&gt;</button>
+                        </section>
+                        <section id="miniatury">
+                            <img src="IMAGES/1.jpg" alt="Gdańsk">
+                            <img src="IMAGES/2.jpg" alt="Kraków">
+                            <img src="IMAGES/3.jpg" alt="Niedzica">
+                            <img src="IMAGES/4.jpg" alt="Pieniny">
+                            <img src="IMAGES/5.jpg" alt="Szklarska Poręba">
+                            <img src="IMAGES/6.jpg" alt="Tatry">
+                            <img src="IMAGES/7.jpg" alt="Wrocław">
+                        </section>
+                    </div>
+                    <div class="accordion-content-4-footer">
+                        <h3>Autorem galerii jest:</h3>
+                        <p>Jakub Szot</p>
+                        <a href="http://pixabay.com" target="_blank">Więcej zdjęć</a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                let currentImage = 1;
+
+                function previousImage() {
+                    currentImage -= 1;
+                    if (currentImage < 1) currentImage = 7
+                    const activeImage = document.getElementById('aktywne_zdjecie');
+                    activeImage.src = "IMAGES/" + currentImage + ".jpg"
+                }
+
+                function nextImage() {
+                    currentImage += 1;
+                    if (currentImage > 7) currentImage = 1
+                    const activeImage = document.getElementById('aktywne_zdjecie');
+                    activeImage.src = "IMAGES/" + currentImage + ".jpg"
+                }
+            </script>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-left-part">
+            <hr>
+            <h3>INF.03 - It's time to work!</h3>
+        </div>
+        <div class="footer-right-part">
+            <div class="footer-right-part-upper">
+                <img src="IMAGES/img11.png" alt="icon">
+                <div>
+                    <h4>The latest news to your inbox</h4>
+                    <p>Subscribe now to the weekly 5<br>Minutes of JavaScript newsletter</p>
+                </div>
+            </div>
+            <div>
+                <form action="">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subcribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.parentElement.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                button.textContent = button.textContent === '➕' ? '➖' : '➕';
+            });
+        });
+    </script>
+</body>
+</html>

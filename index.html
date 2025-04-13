@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK | ColorScript.</title>
+    <meta name="author" content="Jakub Szot">
+    <meta name="description" content="Preperation for the professional qualification examination INF.03">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <nav>
+                <div class="logo-container">
+                    <a href="#">
+                        <img src="IMAGES/logo.png" alt="logo">
+                    </a>
+                    <h2>JavaScript</h2>
+                </div>
+                <div class="main-nav-links">
+                    <ul>
+                        <li>
+                            <a class="try-js" href="exercises.html">Try JavaScript</a>
+                        </li>
+                        <li>
+                            <a href="">News</a>
+                        </li>
+                        <li>
+                            <a href="">Resources</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <nav>
+                <img src="IMAGES/img22.png" alt="code icon">
+                <h1>Ready to try JavaScript?</h1>
+                <ul>
+                    <div>
+                        <li class="script1-toggle">SCRIPT 1</li>
+                        <form class="script1">
+                            <h2>Quadratic equation</h2>
+                            <div>
+                                <label for="a">Enter a</label>
+                                <input id="a" name="a" type="text">
+                            </div>
+                            <div>
+                                <label for="b">Enter b</label>
+                                <input id="b" name="b" type="text">
+                            </div>
+                            <div>
+                                <label for="c">Enter c</label>
+                                <input id="c" name="c" type="text">
+                            </div>
+                            <div>
+                                <button class="script1-check" type="button">Check</button>
+                                <button class="script1-clear" type="button">Clear</button>
+                            </div>
+                            <p class="script1-result"></p>
+                        </form>
+                    </div>
+                    <div>
+                        <li class="script2-toggle">SCRIPT 2</li>
+                        <div class="script2">
+                            <h2>Password generator</h2>
+                            <button class="generate">Generate Password</button>
+                            <p>Twoje hasło: <span id="password" style="color: red; font-weight: bold;"></span></p>
+                        </div>
+                    </div>
+                    <div>
+                        <li class="script3-toggle">SCRIPT 3</li>
+                        <form class="script3">
+                            <h2>Calculator</h2>
+                            <div>
+                                <input type="number" id="number1" name="number1" placeholder="Enter first number">
+                            </div>
+                            <div>
+                                <input type="number" name="number2" id="number2" placeholder="Enter second number">
+                            </div>
+                            <div>
+                                <button class="script3-calculate" type="button">Calculate</button>
+                                <button class="script3-clear" type="button">Clear</button>
+                            </div>
+                            <p class="script3-result"></p>
+                        </form>
+                    </div>
+                </ul>
+            </nav>
+        </main>
+    </div>
+    <footer>
+        <div class="footer-left-part">
+            <hr>
+            <h3>INF.03 - It's time to work!</h3>
+        </div>
+        <div class="footer-right-part">
+            <div class="footer-right-part-upper">
+                <img src="IMAGES/img11.png" alt="icon">
+                <div>
+                    <h4>The latest news to your inbox</h4>
+                    <p>Subscribe now to the weekly 5<br>Minutes of JavaScript newsletter</p>
+                </div>
+            </div>
+            <div>
+                <form action="">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">Subcribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="SCRIPTS/script1.js"></script>
+    <script src="SCRIPTS/script2.js"></script>
+    <script src="SCRIPTS/script3.js"></script>
+</body>
+</html>
